@@ -1,0 +1,155 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'story-bg':     '#0D0B07',
+        'story-bg2':    '#1A1208',
+        'story-ink':    '#110E06',
+        'story-gold':   '#C9A84C',
+        'story-gold2':  '#D4AF6A',
+        'story-amber':  '#E07B39',
+        'story-ember':  '#C85A2A',
+        'story-purple': '#7B5EA7',
+        'story-silver': '#8EAFC2',
+        'story-green':  '#4A7C59',
+        'story-card':   '#1C1409',
+        'story-card2':  '#221810',
+        'story-border': '#3D2E1A',
+        'story-border2':'#5A4228',
+        // Keep legacy names for compatibility
+        'game-bg':     '#0D0B07',
+        'game-bg2':    '#1A1208',
+        'game-purple': '#7B5EA7',
+        'game-blue':   '#8EAFC2',
+        'game-cyan':   '#C9A84C',
+        'game-yellow': '#D4AF6A',
+        'game-orange': '#E07B39',
+        'game-pink':   '#C85A2A',
+        'game-dark':   '#110E06',
+        'game-card':   '#1C1409',
+        'game-border': '#3D2E1A',
+      },
+      fontFamily: {
+        cinzel:  ['Cinzel', 'serif'],
+        lora:    ['Lora', 'serif'],
+        rajdhani:['Rajdhani', 'sans-serif'],
+        bebas:   ['"Bebas Neue"', 'sans-serif'],
+        inter:   ['Inter', 'sans-serif'],
+        // Legacy aliases
+        orbitron:['Cinzel', 'serif'],
+        game:    ['Cinzel', 'serif'],
+      },
+      animation: {
+        'float':          'float 4s ease-in-out infinite',
+        'pulse-glow':     'pulseGlow 3s ease-in-out infinite',
+        'slide-in':       'slideIn 0.5s ease-out',
+        'spin-slow':      'spin 12s linear infinite',
+        'firefly':        'fireflyFloat 6s ease-in-out infinite',
+        'lantern-sway':   'lanternSway 4s ease-in-out infinite',
+        'rune-glow':      'runeGlow 3s ease-in-out infinite',
+        'leaf-drift':     'leafDrift 8s ease-in-out infinite',
+        'coin-float':     'coinFloat 2s ease-in-out infinite',
+        'star-twinkle':   'starTwinkle 4s ease-in-out infinite',
+        'achievement-in': 'achievementIn 0.4s cubic-bezier(0.34,1.56,0.64,1)',
+        'candle-flicker': 'candleFlicker 2s ease-in-out infinite',
+        'mist-drift':     'mistDrift 12s ease-in-out infinite',
+        'scanline':       'scanline 4s linear infinite',
+        'scroll-unfurl':  'scrollUnfurl 0.6s ease-out',
+        'path-move':      'pathMove 2s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%':       { transform: 'translateY(-14px)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 10px rgba(201,168,76,0.4), 0 0 20px rgba(201,168,76,0.2)' },
+          '50%':       { boxShadow: '0 0 25px rgba(201,168,76,0.7), 0 0 50px rgba(201,168,76,0.3), 0 0 80px rgba(201,168,76,0.1)' },
+        },
+        slideIn: {
+          from: { transform: 'translateX(-100%)', opacity: 0 },
+          to:   { transform: 'translateX(0)',      opacity: 1 },
+        },
+        fireflyFloat: {
+          '0%':   { transform: 'translate(0, 0)',      opacity: 0 },
+          '20%':  { opacity: 1 },
+          '50%':  { transform: 'translate(30px, -40px)', opacity: 0.8 },
+          '80%':  { opacity: 0.5 },
+          '100%': { transform: 'translate(-20px, 20px)', opacity: 0 },
+        },
+        lanternSway: {
+          '0%, 100%': { transform: 'rotate(-4deg)' },
+          '50%':       { transform: 'rotate(4deg)' },
+        },
+        runeGlow: {
+          '0%, 100%': { opacity: 0.4, textShadow: '0 0 8px rgba(201,168,76,0.6)' },
+          '50%':       { opacity: 1,   textShadow: '0 0 20px rgba(201,168,76,1), 0 0 40px rgba(201,168,76,0.5)' },
+        },
+        leafDrift: {
+          '0%':   { transform: 'translateX(0) rotate(0deg)',     opacity: 0.6 },
+          '50%':  { transform: 'translateX(40px) rotate(180deg)', opacity: 0.3 },
+          '100%': { transform: 'translateX(-20px) rotate(360deg)', opacity: 0.6 },
+        },
+        coinFloat: {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%':       { transform: 'translateY(-8px) rotate(10deg)' },
+        },
+        starTwinkle: {
+          '0%, 100%': { opacity: 0.8, transform: 'scale(1)' },
+          '50%':       { opacity: 0.2, transform: 'scale(0.5)' },
+        },
+        achievementIn: {
+          from: { transform: 'translateX(120%)', opacity: 0 },
+          to:   { transform: 'translateX(0)',     opacity: 1 },
+        },
+        candleFlicker: {
+          '0%, 90%, 100%': { opacity: 1 },
+          '92%':            { opacity: 0.6 },
+          '94%':            { opacity: 1 },
+          '96%':            { opacity: 0.8 },
+        },
+        mistDrift: {
+          '0%':   { transform: 'translateX(-5%) scaleX(1)',    opacity: 0.4 },
+          '50%':  { transform: 'translateX(5%) scaleX(1.05)',  opacity: 0.6 },
+          '100%': { transform: 'translateX(-5%) scaleX(1)',    opacity: 0.4 },
+        },
+        scanline: {
+          '0%':   { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        scrollUnfurl: {
+          from: { transform: 'scaleY(0)', opacity: 0 },
+          to:   { transform: 'scaleY(1)', opacity: 1 },
+        },
+        pathMove: {
+          '0%':   { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '-60px 0' },
+        },
+      },
+      backgroundImage: {
+        'story-gradient': 'linear-gradient(180deg, #0D0B07 0%, #1A1208 100%)',
+        'gold-glow':      'radial-gradient(ellipse at center, rgba(201,168,76,0.25) 0%, transparent 70%)',
+        'amber-line':     'linear-gradient(90deg, transparent, #C9A84C, transparent)',
+      },
+      boxShadow: {
+        'gold-glow':   '0 0 10px #C9A84C, 0 0 30px #C9A84C, 0 0 60px rgba(201,168,76,0.4)',
+        'amber-glow':  '0 0 10px #E07B39, 0 0 30px #E07B39, 0 0 60px rgba(224,123,57,0.4)',
+        'silver-glow': '0 0 10px #8EAFC2, 0 0 30px #8EAFC2',
+        'purple-glow': '0 0 10px #7B5EA7, 0 0 30px #7B5EA7',
+        'card-glow':   '0 4px 24px rgba(201,168,76,0.15), 0 1px 0 rgba(255,255,255,0.03) inset',
+        // legacy
+        'neon-purple': '0 0 10px #7B5EA7, 0 0 30px #7B5EA7',
+        'neon-blue':   '0 0 10px #8EAFC2, 0 0 30px #8EAFC2',
+        'neon-cyan':   '0 0 10px #C9A84C, 0 0 30px #C9A84C',
+        'neon-yellow': '0 0 10px #D4AF6A, 0 0 30px #D4AF6A',
+        'neon-pink':   '0 0 10px #E07B39, 0 0 30px #E07B39',
+      },
+    },
+  },
+  plugins: [],
+}
