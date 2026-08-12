@@ -13,7 +13,6 @@ import Certifications from './components/Certifications';
 import NextMissions from './components/NextMissions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Achievements from './components/Achievements';
 
 import EasterEgg from './components/EasterEgg';
 
@@ -22,7 +21,6 @@ function PortfolioContent() {
     <>
       {/* Persistent UI */}
       <GameHUD />
-      <Achievements />
 
       <EasterEgg />
 
