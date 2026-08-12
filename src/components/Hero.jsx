@@ -143,7 +143,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, type: 'spring', stiffness: 80 }}
-          className="flex-shrink-0 relative"
+          className="flex-shrink-0 relative lg:-translate-x-12"
         >
           <div className="p-3 bg-white rounded-xl shadow-2xl border border-gray-100 max-w-xs md:max-w-md">
             <img 
@@ -151,16 +151,6 @@ export default function Hero() {
               alt={personalInfo.name} 
               className="w-60 h-72 md:w-72 md:h-96 object-cover rounded-lg" 
             />
-          </div>
-          {/* Status badge */}
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full font-game text-[10px] tracking-widest text-center whitespace-nowrap"
-            style={{
-              color: '#C9A84C',
-              border: '1px solid rgba(201,168,76,0.4)',
-              background: 'rgba(201,168,76,0.06)',
-              backdropFilter: 'blur(8px)',
-            }}>
-            ✦ ONLINE — READY TO CRAFT
           </div>
         </motion.div>
       </div>
