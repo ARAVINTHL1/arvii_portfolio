@@ -143,9 +143,9 @@ export default function Hero() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, type: 'spring', stiffness: 80 }}
-          className="flex-shrink-0 relative lg:-translate-x-12"
+          className="flex-shrink-0 relative lg:-translate-x-24"
         >
-          <div className="p-3 bg-white rounded-xl shadow-2xl border border-gray-100 max-w-xs md:max-w-md">
+          <div className="p-3 bg-white rounded-xl max-w-xs md:max-w-md border image-border-animated">
             <img 
               src="/aravinthl.jpeg" 
               alt={personalInfo.name} 

@@ -96,14 +96,17 @@ export default function PlayerProfile() {
                 <div className="font-game text-[10px] tracking-[0.3em] mb-2"
                   style={{ color: '#3D2E1A' }}>── PROFILE ──</div>
 
-                {/* Avatar — glowing rune circle */}
+                {/* Avatar — glowing image circle */}
                 <div className="relative inline-block mb-4">
-                  <div className="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl"
+                  <div className="w-20 h-20 rounded-full mx-auto overflow-hidden border border-[#C9A84C]"
                     style={{
-                      background: 'linear-gradient(135deg, #7B5EA7, #C9A84C)',
                       boxShadow: '0 0 20px rgba(201,168,76,0.35)',
                     }}>
-                    🧙
+                    <img 
+                      src="/23CSR021_ARAVINTH_L_ .png" 
+                      alt={personalInfo.name} 
+                      className="w-full h-full object-cover" 
+                    />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 flex items-center justify-center"
                     style={{ background: '#4A7C59', borderColor: '#1C1409' }}>
@@ -161,20 +164,7 @@ export default function PlayerProfile() {
               ))}
             </div>
 
-            {/* Attribute stats */}
-            <div>
-              <div className="font-game text-[10px] tracking-[0.3em] mb-6"
-                style={{ color: '#C9A84C' }}>── SKILLS ──</div>
-              {stats.map((s, i) => (
-                <StatBar
-                  key={s.label}
-                  label={s.label}
-                  value={s.value}
-                  color={['#7B5EA7', '#8EAFC2', '#E07B39', '#C9A84C'][i % 4]}
-                  delay={i * 0.1}
-                />
-              ))}
-            </div>
+
 
             {/* Quick links */}
             <div className="flex gap-3 flex-wrap">

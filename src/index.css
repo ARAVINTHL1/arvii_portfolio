@@ -514,3 +514,19 @@ body {
   0%, 100% { opacity: 0.5; text-shadow: 0 0 8px rgba(201,168,76,0.5); }
   50%       { opacity: 1;   text-shadow: 0 0 20px rgba(201,168,76,1), 0 0 40px rgba(201,168,76,0.4); }
 }
+
+/* ── Hero Image Animated Border Glow ── */
+.image-border-animated {
+  animation: borderGlowPulse 4s infinite ease-in-out;
+  border-width: 2px;
+}
+@keyframes borderGlowPulse {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.3), 0 0 35px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    border-color: rgba(201, 168, 76, 0.85);
+    box-shadow: 0 0 25px rgba(201, 168, 76, 0.65), 0 0 45px rgba(224, 123, 57, 0.35);
+  }
+}

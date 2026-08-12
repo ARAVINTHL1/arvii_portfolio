@@ -144,6 +144,8 @@ export const certifications = [
     icon: "🏆",
     color: "#00ED64",
     year: "2024",
+    image: "/MONGODB CERTIFICATE ARAVINTH .png",
+    description: "Certified in building scalable database solutions, designing collections, performing aggregations, and managing data models with MongoDB.",
   },
   {
     id: 2,
@@ -152,6 +154,8 @@ export const certifications = [
     icon: "🏅",
     color: "#FF7A00",
     year: "2024",
+    image: "/java.png",
+    description: "Certified in foundational Java programming, including object-oriented programming concepts, Java platform, classes, and language syntax.",
   },
 ];
 

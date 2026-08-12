@@ -1,11 +1,12 @@
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useGameState } from '../hooks/useGameState';
 import { certifications } from '../data/portfolioData';
 
 export default function Certifications() {
   const { visitSection } = useGameState();
   const ref = useRef(null);
+  const [selectedCert, setSelectedCert] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -56,11 +57,12 @@ export default function Certifications() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.15, type: 'spring', stiffness: 100 }}
-                className="trophy-card p-6 relative overflow-hidden"
+                className="trophy-card p-6 relative overflow-hidden cursor-pointer"
+                onClick={() => setSelectedCert(cert)}
               >
                 {/* Shine effect */}
                 <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'linear-gradient(135deg, transparent 30%, rgba(255,214,0,0.05) 50%, transparent 70%)' }}
+                  style={{ background: 'linear-gradient(135deg, transparent 30%, rgba(201,168,76,0.05) 50%, transparent 70%)' }}
                 />
 
                 <div className="flex items-center gap-4">
@@ -117,6 +119,64 @@ export default function Certifications() {
           </div>
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', duration: 0.5 }}
+              className="relative max-w-2xl w-full game-card p-6 border border-[#C9A84C] overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Corner decorations */}
+              <div className="absolute top-0 left-0 w-6 h-6 border-t border-l rounded-tl-lg" style={{ borderColor: '#C9A84C' }} />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t border-r rounded-tr-lg" style={{ borderColor: '#C9A84C' }} />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l rounded-bl-lg" style={{ borderColor: '#C9A84C' }} />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r rounded-br-lg" style={{ borderColor: '#C9A84C' }} />
+
+              {/* Close Button */}
+              <button
+                className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors text-xl font-bold"
+                onClick={() => setSelectedCert(null)}
+              >
+                ✕
+              </button>
+
+              <div className="flex flex-col gap-6">
+                {/* Certificate image */}
+                <div className="w-full overflow-hidden rounded border border-[#3D2E1A] bg-gray-900 aspect-[4/3] flex items-center justify-center">
+                  <img
+                    src={selectedCert.image}
+                    alt={selectedCert.title}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+
+                {/* Details */}
+                <div>
+                  <span className="font-game text-xs tracking-widest" style={{ color: selectedCert.color }}>
+                    {selectedCert.issuer}
+                  </span>
+                  <h3 className="font-game text-2xl mt-1 mb-3" style={{ color: '#EDE0C8' }}>{selectedCert.title}</h3>
+                  <p className="font-lore italic text-sm leading-relaxed" style={{ color: '#B8A48C' }}>
+                    {selectedCert.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

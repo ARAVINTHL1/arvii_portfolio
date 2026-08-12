@@ -78,7 +78,6 @@ export default function Footer() {
       {/* Built with */}
       <div className="text-center mb-6">
         <p className="font-ui text-sm" style={{ color: '#6B5A3E' }}>
-          Built with ❤️ + ☕ + code
         </p>
       </div>
 
