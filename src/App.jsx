@@ -13,15 +13,17 @@ import Certifications from './components/Certifications';
 import NextMissions from './components/NextMissions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-
 import EasterEgg from './components/EasterEgg';
+import CursorGlow from './components/CursorGlow';
 
 function PortfolioContent() {
   return (
     <>
+      {/* Custom cursor */}
+      <CursorGlow />
+
       {/* Persistent UI */}
       <GameHUD />
-
       <EasterEgg />
 
       {/* Fixed parallax background */}
