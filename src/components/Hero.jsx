@@ -20,22 +20,13 @@ export default function Hero() {
     <section
       id="hero"
       ref={ref}
-      style={{
-        display: 'flex',
-        height: '100vh',
-        width: '100%',
-        overflow: 'hidden',
-        position: 'relative',
-        paddingTop: '64px', /* offset for fixed navbar */
-      }}
+      className="relative min-h-screen lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row w-full pt-20 lg:pt-16"
     >
       {/* Background glows */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
+      <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 60% 70% at 25% 50%, rgba(91,143,74,0.09) 0%, transparent 65%)',
       }} />
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
+      <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 50% 55% at 80% 50%, rgba(201,168,120,0.05) 0%, transparent 65%)',
       }} />
 
@@ -46,25 +37,20 @@ export default function Hero() {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-        style={{
-          width: '48%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0,
-          position: 'relative',
-        }}
+        className="w-full lg:w-[48%] flex items-center justify-center flex-shrink-0 relative py-8 lg:py-0 min-h-[400px] lg:min-h-0"
       >
         {/* Thin glowing divider on right edge */}
-        <div style={{
-          position: 'absolute', top: '10%', right: 0, width: '1px', height: '80%',
-          background: 'linear-gradient(180deg, transparent, rgba(91,143,74,0.4), rgba(201,168,120,0.35), rgba(91,143,74,0.3), transparent)',
-          animation: 'dividerGlow 3.5s ease-in-out infinite',
-          pointerEvents: 'none',
-        }} />
+        <div 
+          className="hidden lg:block absolute top-[10%] right-0 w-[1px] h-[80%]"
+          style={{
+            background: 'linear-gradient(180deg, transparent, rgba(91,143,74,0.4), rgba(201,168,120,0.35), rgba(91,143,74,0.3), transparent)',
+            animation: 'dividerGlow 3.5s ease-in-out infinite',
+            pointerEvents: 'none',
+          }} 
+        />
 
         {/* Card wrapper */}
-        <div style={{ position: 'relative' }}>
+        <div className="relative">
           {/* Ambient glow behind card */}
           <div style={{
             position: 'absolute', inset: '-32px', borderRadius: '28px',
@@ -74,22 +60,19 @@ export default function Hero() {
           }} />
 
           {/* White border card */}
-          <div style={{
-            position: 'relative', zIndex: 1,
-            padding: '4px',
-            borderRadius: '18px',
-            background: 'white',
-            boxShadow: '0 0 0 4px rgba(255,255,255,0.15), 0 0 30px rgba(255,255,255,0.12), 0 0 60px rgba(91,143,74,0.20)',
-            animation: 'whiteBorderPulse 3s ease-in-out infinite',
-          }}>
-            <div style={{ borderRadius: '14px', overflow: 'hidden' }}>
+          <div 
+            className="relative z-10 p-[3px] sm:p-1 rounded-[14px] sm:rounded-[18px] bg-white"
+            style={{
+              boxShadow: '0 0 0 4px rgba(255,255,255,0.15), 0 0 30px rgba(255,255,255,0.12), 0 0 60px rgba(91,143,74,0.20)',
+              animation: 'whiteBorderPulse 3s ease-in-out infinite',
+            }}
+          >
+            <div className="rounded-[10px] sm:rounded-[14px] overflow-hidden">
               <img
                 src="/aravinthl.jpeg"
                 alt={personalInfo.name}
+                className="w-[240px] h-[310px] sm:w-[280px] sm:h-[370px] lg:w-[320px] lg:h-[420px] object-cover"
                 style={{
-                  width: '320px',
-                  height: '420px',
-                  objectFit: 'cover',
                   objectPosition: '50% 62%',
                   display: 'block',
                 }}
@@ -102,14 +85,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 }}
+            className="absolute bottom-[-18px] sm:bottom-[-20px] left-1/2 -translate-x-1/2 text-[9px] sm:text-[10px] font-bold tracking-[0.2em] whitespace-nowrap text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full z-10"
             style={{
-              position: 'absolute', bottom: '-20px',
-              left: '50%', transform: 'translateX(-50%)',
-              fontSize: '10px', fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 700, letterSpacing: '0.2em',
-              whiteSpace: 'nowrap', color: '#fff',
               background: 'linear-gradient(135deg, #5B8F4A, #7AAD67)',
-              padding: '7px 20px', borderRadius: '999px', zIndex: 2,
+              fontFamily: "'Space Grotesk', sans-serif",
               boxShadow: '0 0 16px rgba(91,143,74,0.5)',
             }}
           >
@@ -122,44 +101,33 @@ export default function Hero() {
           RIGHT — All content centered
       ══════════════════════════ */}
       <div
-        style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',   /* vertically center everything */
-          padding: '0 60px 0 44px',
-          position: 'relative',
-          gap: '0',
-        }}
+        className="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:pl-10 lg:pr-16 py-8 lg:py-0 relative overflow-hidden"
       >
         {/* Bg glow */}
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
+        <div className="absolute inset-0 pointer-events-none" style={{
           background: 'radial-gradient(ellipse 80% 60% at 55% 50%, rgba(91,143,74,0.06) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div className="relative z-10">
 
           {/* Chapter tag */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38 }}>
-            <div className="section-tag mb-5 inline-flex">
+            <div className="section-tag mb-4 sm:mb-5 inline-flex">
               📖 CHAPTER I — THE BEGINNING
             </div>
           </motion.div>
 
           {/* Sub-heading */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.48 }}>
-            <p style={{ fontFamily: "'Space Grotesk'", fontSize: '11px', letterSpacing: '0.28em', color: '#A8B89A', marginBottom: '8px' }}>
+            <p className="text-[10px] sm:text-[11px] tracking-[0.28em] text-[#A8B89A] mb-2" style={{ fontFamily: "'Space Grotesk'" }}>
               HARK! THE TALE OF
             </p>
 
             {/* Name */}
             <h1
-              className="font-game"
+              className="font-game mb-4 sm:mb-5 leading-none"
               style={{
-                fontSize: 'clamp(2.8rem, 5.2vw, 5rem)',
-                lineHeight: 1,
-                marginBottom: '20px',
+                fontSize: 'clamp(2.2rem, 5.2vw, 5rem)',
                 background: 'linear-gradient(135deg, #F0E8D8 0%, #C9A878 45%, #7AAD67 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -173,40 +141,38 @@ export default function Hero() {
 
           {/* Role + subtitle */}
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.57 }}>
-            <p style={{ fontFamily: "'Space Grotesk'", fontSize: '14px', letterSpacing: '0.18em', color: '#C9A878', marginBottom: '4px' }}>
+            <p className="text-xs sm:text-[14px] tracking-[0.18em] text-[#C9A878] mb-1" style={{ fontFamily: "'Space Grotesk'" }}>
               {personalInfo.role}
             </p>
-            <p style={{ fontFamily: "'Space Grotesk'", fontSize: '11px', letterSpacing: '0.13em', color: '#6E8060', marginBottom: '18px' }}>
+            <p className="text-[10px] sm:text-[11px] tracking-[0.13em] text-[#6E8060] mb-4" style={{ fontFamily: "'Space Grotesk'" }}>
               {personalInfo.subtitle}
             </p>
-            <div style={{ height: '1px', width: '52px', background: 'linear-gradient(90deg, #5B8F4A, transparent)', marginBottom: '16px' }} />
+            <div className="h-[1px] w-[52px] mb-4" style={{ background: 'linear-gradient(90deg, #5B8F4A, transparent)' }} />
           </motion.div>
 
           {/* Description */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.64 }}>
-            <p style={{
-              fontFamily: 'Inter', fontSize: '15px', lineHeight: 1.75,
-              color: '#A8B89A', fontStyle: 'italic',
-              maxWidth: '420px', marginBottom: '32px',
-            }}>
+            <p 
+              className="text-sm sm:text-base leading-relaxed text-[#A8B89A] italic max-w-lg mb-6 sm:mb-8"
+              style={{ fontFamily: 'Inter' }}
+            >
               {personalInfo.description}
             </p>
           </motion.div>
 
           {/* Buttons */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.72 }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginBottom: '28px' }}>
+            <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-7">
               <button
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary font-game rounded-lg"
-                style={{ padding: '13px 28px', fontSize: '11px', letterSpacing: '0.08em', boxShadow: '0 0 24px rgba(91,143,74,0.42), 0 0 52px rgba(91,143,74,0.12)' }}
+                className="btn-primary font-game rounded-lg px-6 py-3 sm:px-7 sm:py-3.5 text-[10px] sm:text-[11px] tracking-wider"
+                style={{ boxShadow: '0 0 24px rgba(91,143,74,0.42), 0 0 52px rgba(91,143,74,0.12)' }}
               >
                 ✦ BEGIN THE TALE
               </button>
               <button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-outline font-game rounded-lg"
-                style={{ padding: '13px 28px', fontSize: '11px', letterSpacing: '0.08em' }}
+                className="btn-outline font-game rounded-lg px-6 py-3 sm:px-7 sm:py-3.5 text-[10px] sm:text-[11px] tracking-wider"
               >
                 VIEW PROJECTS
               </button>
@@ -215,8 +181,7 @@ export default function Hero() {
                 download="Aravinth_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-game rounded-lg transition-all duration-300"
-                style={{ padding: '13px 28px', fontSize: '11px', letterSpacing: '0.08em', color: '#C9A878', border: '1px solid rgba(201,168,120,0.38)' }}
+                className="font-game rounded-lg transition-all duration-300 px-6 py-3 sm:px-7 sm:py-3.5 text-[10px] sm:text-[11px] tracking-wider border border-[rgba(201,168,120,0.38)] text-[#C9A878]"
                 onMouseEnter={e => {
                   e.currentTarget.style.background = 'rgba(201,168,120,0.09)';
                   e.currentTarget.style.boxShadow = '0 0 20px rgba(201,168,120,0.24)';
@@ -231,9 +196,9 @@ export default function Hero() {
             </div>
 
             {/* Bottom accent line */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '52px', height: '1px', background: 'linear-gradient(90deg, rgba(91,143,74,0.5), transparent)' }} />
-              <span style={{ fontFamily: "'Space Grotesk'", fontSize: '9px', letterSpacing: '0.2em', color: '#3A5030' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-[52px] h-[1px]" style={{ background: 'linear-gradient(90deg, rgba(91,143,74,0.5), transparent)' }} />
+              <span className="text-[8px] sm:text-[9px] tracking-[0.2em] text-[#3A5030]" style={{ fontFamily: "'Space Grotesk'" }}>
                 SCROLL TO CONTINUE ↓
               </span>
             </div>
